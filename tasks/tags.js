@@ -91,6 +91,8 @@ module.exports = function (grunt) {
             return grunt.template.process(this.options.scriptTemplate, data) + EOL;
         } else if (ext === '.css') {
             return grunt.template.process(this.options.linkTemplate, data) + EOL;
+        } else if (ext === '.scss') {
+            return processTemplate(templates.linkTemplate, {path: relativePath.replace(/.scss/g, '.css')}) + EOL;
         } else {
             return ''
         }
